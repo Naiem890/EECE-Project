@@ -20,14 +20,22 @@ void setup() {
 
 void loop() {
   Serial.print("Reading: ");
-  if(scale.get_units()>2)
-  {
-      Serial.print("No Charge");
-  }
-  else
-  {
-   Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
-   Serial.print(" Taka");
-  }  
+  int weight = scale.get_units();
+  Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
+  Serial.print(" lbs"); //You can change this to kg but you'll need to refactor the calibration_factor
+ 
   Serial.println();
+
+  if (weight > 2) {
+    int tax = weight*1;
+
+    Serial.print(" You have to pay: ");
+    Serial.print(tax);
+    Serial.print(" taka.");
+    Serial.println();
+    
+  } 
+  else {
+    Serial.println(" You don't have to pay ");
+  }
 }
