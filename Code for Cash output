@@ -44,7 +44,14 @@ void setup() {
 
 void loop() {
   Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
-  Serial.print(" Taka"); 
+  if(scale.get_units()>2)
+  {
+      Serial.print("No Charge");
+  }
+  else
+  {
+   Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
+   Serial.print(" Taka");
+  }  
   Serial.println();
 }
