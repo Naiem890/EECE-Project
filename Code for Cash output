@@ -27,7 +27,7 @@ void loop() {
   Serial.println();
 
   if (weight > 2) {
-    int tax = weight*1;
+    int tax = (weight-2)*1;
 
     Serial.print(" You have to pay: ");
     Serial.print(tax);
